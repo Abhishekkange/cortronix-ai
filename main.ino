@@ -58,7 +58,8 @@ public:
     IDLE,
     WAKE_UP,
     HAPPY,
-    SLEEPY
+    SLEEPY,
+    LISTENING
   };
 
   State current_state = IDLE;
@@ -152,7 +153,20 @@ void loop() {
       {
         emo.current_state = IDLE;
       }
-      
+      break;
+
+    case Robot::LISTENING:
+
+      break;
+
+    case Robot::ANGRY:
+
+      break;
+    
+    case Robot::DEEP_SLEEP:
+
+      break;
+
 
       
 
