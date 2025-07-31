@@ -1,4 +1,4 @@
-# 🤖 Cortronix - Interactive Desktop Robot Toy
+# 🤖 Cortronix - AI Desktop  Toy
 
 
 ![Cortrnonix](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8xj20sYuGYddVdUCq-SXgW5_u-KiQzqSFoJj_VONO2DoWlOY8VT6WlwSjDSJ9a6KdCro5FLHQwu4mS14PgbetdkaLGrCONxxhv8r6GkVeuv7zPmhJ27Wb9_671AgGl6sACEtF9JQXMqtEpHjR6ZVBtaja8HZBuzqhJApMONHgZxPh1-ppDKsWBoSfwHo/s320/ChatGPT%20Image%20Aug%201,%202025,%2001_08_22%20AM.png)
