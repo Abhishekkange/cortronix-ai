@@ -1,18 +1,49 @@
 #include <Arduino.h>
+#include <Preferences.h>
+#include<robot.h>
+#include<environment.h>
 
-// put function declarations here:
-int myFunction(int, int);
+
+
+Preferences pref;
+Robot robot;
+
+void bootCotrix(){
+
+  pref.begin("cortnonix", false);
+  String username = pref.getString("username", "not_defined");
+  if(username == "not_defined") {
+
+      robot = Robot();
+      robot.setCurrentState(Robot::BOOT);
+      robot.setPrevState(Robot::BOOT);
+
+  } else {
+
+    Serial.println("Username already set: " + username);
+    robot = Robot();
+    robot.setCurrentState(Robot::IDLE);
+    robot.setPrevState(Robot::IDLE);
+  }
+}
+
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+
+  //Initial Contrix Setup
+  Serial.println("Cortnonix AI - Initializing...");
+  bootCotrix();
+
+
+  pref.begin("cortnonix", false);
+  pref.putString("username", "Abhishek ");
+
+
+  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  
 }
