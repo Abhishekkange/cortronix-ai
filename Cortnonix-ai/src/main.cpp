@@ -3,7 +3,11 @@
 #include<robot.h>
 #include<environment.h>
 #include <BluetoothSerial.h>
-#include <ArduinoJson.h> 
+#include <ArduinoJson.h>
+#include <wifiConfig.h>
+
+
+
 
 
 
@@ -118,9 +122,20 @@ void loop() {
               String password = doc["password"];
               Serial.println("Connecting to WiFi: " + ssid);
               // Add your WiFi connection logic here
-
-              robot.setCurrentState(Robot::CONNECTED_TO_WIFI);
-              robot.isConnectedToWiFi = true;
+              bool setupResult = SetupWifi().connectToWifi(ssid.c_str(), password.c_str());
+              if(setupResult)
+              {
+                Serial.println("Connected to WiFi: " + ssid);
+                robot.currentState = Robot::CONNECTED_TO_WIFI;
+                robot.setPrevState(Robot::CONNECTING_TO_WIFI);
+                robot.isConnectedToWiFi = true;
+              } else {
+                Serial.println("Failed to connect to WiFi: " + ssid);
+                robot.setCurrentState(Robot::FAILED_TO_CONNECT_TO_WIFI);
+                robot.setPrevState(Robot::CONNECTING_TO_WIFI);
+                robot.isConnectedToWiFi = false;
+              }
+              break;
 
 
 
